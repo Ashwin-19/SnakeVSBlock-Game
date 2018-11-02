@@ -19,12 +19,12 @@ public class Snake extends ImageView implements BoardObjects
 
     void move()
     {
-        if (leftkey && !rightkey)
+        if (leftkey && !rightkey && getLayoutX() > 0)
         {
             setLayoutX(getLayoutX() - 10);
         }
 
-        if (!leftkey && rightkey)
+        if (!leftkey && rightkey && getLayoutX() < 580)
         {
             setLayoutX(getLayoutX() + 10);
         }

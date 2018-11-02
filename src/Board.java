@@ -1,7 +1,6 @@
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,11 +9,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.Serializable;
 import java.util.Random;
-import java.util.RandomAccess;
 
 import javafx.animation.*;
 
@@ -31,7 +28,7 @@ public class Board extends Application implements Serializable {
     private static final String EXIT_URL = "assets/gameicons/PNG/White/2x/return.png";
     private Button exit;
     private static final int GAME_WIDTH = 600;
-    private static final int GAME_HEIGHT = 800;
+    private static final int GAME_HEIGHT = 820;
     private static final String BACKGROUND_URL = "assets/gamebg/BG2.jpg";
     private static final String BACKGROUND_URL_2 = "assets/gamebg/BG2.jpg";
     private Block[] Blocks;
@@ -96,6 +93,7 @@ public class Board extends Application implements Serializable {
         primaryStage.hide();
         game_window = new Stage();
         game_window.setTitle("Snake VS Block");
+        game_window.setResizable(false);
         game_layout = new AnchorPane();
 
         make_game();
@@ -142,14 +140,14 @@ public class Board extends Application implements Serializable {
         });
     }
 
-    void make_game()
+    private void make_game()
     {
-        Game = new Scene(game_layout, GAME_WIDTH, GAME_HEIGHT);
+        Game = new Scene(game_layout, 600, 800);
         game_window.setScene(Game);
         game_window.show();
     }
 
-    void make_game_loop() {
+    private void make_game_loop() {
         animationTimer = new AnimationTimer()
         {
             @Override
@@ -177,7 +175,7 @@ public class Board extends Application implements Serializable {
         animationTimer.start();
     }
 
-    void make_background()
+    private void make_background()
     {
         game_layout_1 = new GridPane();
         game_layout_2 = new GridPane();
@@ -215,7 +213,7 @@ public class Board extends Application implements Serializable {
 //        game_layout.getChildren().add(Menu);
     }
 
-    void move_background() {
+    private void move_background() {
         game_layout_1.setLayoutY(game_layout_1.getLayoutY() + 2);
         game_layout_2.setLayoutY(game_layout_2.getLayoutY() + 2);
 
@@ -230,14 +228,14 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void make_snake()
+    private void make_snake()
     {
         Image image = new Image("assets/snake/snake.png");
         snake_head = new Snake(350, 700, image);
         game_layout.getChildren().add(snake_head);
     }
 
-    void generate_balls()
+    private void generate_balls()
     {
         Balls = new Ball[1];
         Image BALL_IMG = new Image(BALL_URL);
@@ -250,7 +248,7 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void set_element_position(ImageView element)
+    private void set_element_position(ImageView element)
     {
         int relocate = RandomPosition.nextInt(1000);
 
@@ -290,7 +288,7 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void generate_blocks()
+    private void generate_blocks()
     {
         RandomPosition = new Random();
         int empty_indices = RandomPosition.nextInt(3);
@@ -338,7 +336,7 @@ public class Board extends Application implements Serializable {
         CreateBlockRow1(empty_index_0, empty_index_1, empty_index_2);
     }
 
-    void CreateBlockRow(int empty_index_0, int empty_index_1, int empty_index_2)
+    private void CreateBlockRow(int empty_index_0, int empty_index_1, int empty_index_2)
     {
         Image image1 = new Image(BLOCK_R1);
         Image image2 = new Image(BLOCK_R2);
@@ -374,7 +372,7 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void CreateBlockRow1(int empty_index_0, int empty_index_1, int empty_index_2)
+    private void CreateBlockRow1(int empty_index_0, int empty_index_1, int empty_index_2)
     {
         Image image1 = new Image(BLOCK_R1);
         Image image2 = new Image(BLOCK_R2);
@@ -410,13 +408,13 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void set_block_position(ImageView element, int index)
+    private void set_block_position(ImageView element, int index)
     {
         element.setLayoutX(index*75);
         element.setLayoutY(-600);
     }
 
-    void set_block_position1(ImageView element, int index)
+    private void set_block_position1(ImageView element, int index)
     {
         int index1 = 0;
 
@@ -433,7 +431,7 @@ public class Board extends Application implements Serializable {
         element.setLayoutY(-300);
     }
 
-    void MoveBlocks()
+    private void MoveBlocks()
     {
         for (int i = 0; i < Blocks.length; i++)
         {
@@ -452,7 +450,7 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void MoveBalls()
+    private void MoveBalls()
     {
         for(int i = 0; i < Balls.length; i++)
         {
@@ -460,7 +458,7 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void RelocateBalls()
+    private void RelocateBalls()
     {
         for(int i = 0; i < Balls.length; i++)
         {
@@ -471,7 +469,7 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    void Relocate()
+    private void Relocate()
     {
         int empty_indices = RandomPosition.nextInt(3);
         int empty_index_0 = -1;
