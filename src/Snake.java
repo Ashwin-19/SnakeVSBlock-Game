@@ -24,7 +24,7 @@ public class Snake extends ImageView implements BoardObjects
             setLayoutX(getLayoutX() - 10);
         }
 
-        if (!leftkey && rightkey && getLayoutX() < 580)
+        if (!leftkey && rightkey && getLayoutX() < 640)
         {
             setLayoutX(getLayoutX() + 10);
         }

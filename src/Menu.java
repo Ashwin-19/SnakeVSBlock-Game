@@ -44,6 +44,16 @@ public class Menu extends Application
     }
 
     @FXML
+    protected void Instructions(ActionEvent e) throws Exception
+    {
+        Parent root = FXMLLoader.load(getClass().getResource("Instructions.fxml"));
+        Stage Instructions = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 600, 800);
+        Instructions.setScene(scene);
+        Instructions.show();
+    }
+
+    @FXML
     protected void Exit(ActionEvent e)
     {
         System.exit(-1);

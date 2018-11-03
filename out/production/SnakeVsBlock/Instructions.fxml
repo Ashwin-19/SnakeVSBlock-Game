@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Instructions">
+   <children>
+      <Label layoutX="137.0" layoutY="56.0" text="INSTRUCTIONS" textFill="#fcfafa">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="256.0" layoutY="675.0" mnemonicParsing="false" onAction="#Back" style="-fx-background-color: BLACK;">
+         <graphic>
+            <ImageView fitHeight="70.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/gameicons/PNG/White/2x/cross.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="99.0" layoutY="184.0" text="USE &lt;- AND -&gt; TO MOVE THE SNAKE" textFill="#fffdfd">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="259.0" text="BALLS INCREASE THE LENGTH OF THE SNAKE" textFill="#fffafa">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="335.0" text="BLOCKS DECREASE THE LENGTH OF THE SNAKE" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="106.0" layoutY="412.0" text="MAGNETS FETCH YOU MORE COINS" textFill="#fffefe">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="115.0" layoutY="493.0" text="BOMBS DESTROY ALL THE BLOCKS" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="574.0" text="SHIELD HELPS PROTECT THE SNAKE FROM BLOCKS" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,7 +1,11 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -10,12 +14,17 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.awt.*;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Random;
 
 import javafx.animation.*;
 
 public class Board extends Application implements Serializable {
+
+
     // In screen components
     private Stage game_window;
     private Scene Game;
@@ -25,7 +34,7 @@ public class Board extends Application implements Serializable {
     private HBox Menu;
     private Button pause;
     private static final String PAUSE_URL = "assets/gameicons/PNG/White/2x/pause.png";
-    private static final String EXIT_URL = "assets/gameicons/PNG/White/2x/return.png";
+    private static final String EXIT_URL = "assets/gameicons/PNG/White/2x/cross.png";
     private Button exit;
     private static final int GAME_WIDTH = 600;
     private static final int GAME_HEIGHT = 820;
@@ -33,6 +42,7 @@ public class Board extends Application implements Serializable {
     private static final String BACKGROUND_URL_2 = "assets/gamebg/BG2.jpg";
     private Block[] Blocks;
     private Block[] Blocks_1;
+    private Block[] Random_blocks;
     private static final String BLOCK_R1 = "assets/Blocks/Special/brickSpecial01.png";
     private static final String BLOCK_R2 = "assets/Blocks/Special/brickSpecial10.png";
     private static final String BLOCK_R3 = "assets/Blocks/Special/brickSpecial08.png";
@@ -102,13 +112,65 @@ public class Board extends Application implements Serializable {
         generate_blocks();
         generate_balls();
         generate_coins();
+        generateRandomBlocks();
         generateDestroyBlocks();
         generate_walls();
         generate_magnets();
         generate_shields();
+        make_buttons();
         make_game_loop();
         createKeyListeners();
         RandomPosition = new Random();
+    }
+
+    private void make_buttons()
+    {
+        pause = new Button();
+        Image pause_img = new Image(PAUSE_URL);
+        ImageView pause_imgvw = new ImageView(pause_img);
+        pause_imgvw.setFitWidth(40);
+        pause_imgvw.setFitHeight(40);
+        pause.setGraphic(pause_imgvw);
+        pause.setStyle("-fx-background-color: BLACK");
+        pause.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                animationTimer.stop();
+            }
+        });
+
+        exit = new Button();
+        Image exit_img = new Image(EXIT_URL);
+        ImageView exit_imgvw = new ImageView(exit_img);
+        exit_imgvw.setFitHeight(40);
+        exit_imgvw.setFitWidth(40);
+        exit.setGraphic(exit_imgvw);
+        exit.setStyle("-fx-background-color: BLACK");
+        exit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                Parent root = null;
+                try
+                {
+                    root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+                Stage Menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root, 600, 800);
+                Menu.setScene(scene);
+                Menu.show();
+            }
+        });
+
+        Menu = new HBox(10);
+        Menu.setAlignment(Pos.CENTER_LEFT);
+        Menu.getChildren().addAll(exit, pause);
+        AnchorPane.setTopAnchor(Menu, 0.0);
+        game_layout.getChildren().add(Menu);
     }
 
     private void createKeyListeners() {
@@ -142,7 +204,7 @@ public class Board extends Application implements Serializable {
 
     private void make_game()
     {
-        Game = new Scene(game_layout, 600, 800);
+        Game = new Scene(game_layout, 660, 800);
         game_window.setScene(Game);
         game_window.show();
     }
@@ -161,14 +223,16 @@ public class Board extends Application implements Serializable {
                 MoveShields();
                 MoveWalls();
                 MoveDBlocks();
+                MoveRandomBlocks();
+                snake_head.move();
                 Relocate();
+                RelocateRandomBlocks();
                 RelocateBalls();
                 RelocateMagnets();
                 RelocateCoins();
                 RelocateShields();
                 RelocateWalls();
                 RelocateDBlocks();
-                snake_head.move();
             }
         };
 
@@ -197,20 +261,6 @@ public class Board extends Application implements Serializable {
         game_layout_2.setLayoutY(-800);
 
         game_layout.getChildren().addAll(game_layout_1, game_layout_2);
-
-//        pause = new Button();
-//        String PAUSE_Style = "-fx-background-image: url('" + PAUSE_URL + "')";
-//        pause.setStyle(PAUSE_Style);
-//
-//        exit = new Button();
-//        String EXIT_Style = "-fx-background-image: url('" + EXIT_URL + "')";
-//        exit.setStyle(EXIT_Style);
-//
-//        Menu = new HBox(10);
-//        Menu.setAlignment(Pos.CENTER_LEFT);
-//        Menu.getChildren().addAll(exit, pause);
-//        AnchorPane.setTopAnchor(Menu, 0.0);
-//        game_layout.getChildren().add(Menu);
     }
 
     private void move_background() {
@@ -279,7 +329,7 @@ public class Board extends Application implements Serializable {
             }
 
             element.setLayoutX(x*GAME_WIDTH);
-            element.setLayoutY(y*((Blocks[index1].getLayoutY() + Blocks_1[index2].getLayoutY())/2));
+            element.setLayoutY(y*(-100));
         }
 
         else
@@ -344,18 +394,20 @@ public class Board extends Application implements Serializable {
 
         for (int i = 0; i < 9; i++)
         {
+            int image_id = RandomPosition.nextInt(3);
+
             if (i == empty_index_0  || i == empty_index_1 || i == empty_index_2)
             {
                 Blocks[i] = null;
             }
-            else if (i % 2 == 0)
+            else if (image_id == 0)
             {
                 Block R1 = new Block(image1);
                 Blocks[i] = R1;
                 set_block_position(Blocks[i],i);
                 game_layout.getChildren().add(Blocks[i]);
             }
-            else if (i % 3 == 0)
+            else if (image_id == 1)
             {
                 Block R2 = new Block(image2);
                 Blocks[i] = R2;
@@ -380,18 +432,20 @@ public class Board extends Application implements Serializable {
 
         for (int i = 0; i < 9; i++)
         {
+            int image_id = RandomPosition.nextInt(3);
+
             if (i == empty_index_0  || i == empty_index_1 || i == empty_index_2)
             {
                 Blocks_1[i] = null;
             }
-            else if (i % 2 == 0)
+            else if (image_id == 0)
             {
                 Block R1 = new Block(image1);
                 Blocks_1[i] = R1;
                 set_block_position1(Blocks_1[i],i);
                 game_layout.getChildren().add(Blocks_1[i]);
             }
-            else if (i % 3 == 0)
+            else if (image_id == 1)
             {
                 Block R2 = new Block(image2);
                 Blocks_1[i] = R2;
@@ -708,7 +762,7 @@ public class Board extends Application implements Serializable {
                 }
             }
 
-            wall.setLayoutY(Blocks[index1].getLayoutY());
+            wall.setLayoutY(Blocks[index1].getLayoutY() - 60);
         }
         else if (randomize == 1)
         {
@@ -723,11 +777,60 @@ public class Board extends Application implements Serializable {
                 }
             }
 
-            wall.setLayoutY(Blocks_1[index1].getLayoutY());
+            wall.setLayoutY(Blocks_1[index1].getLayoutY() - 60);
         }
         else
         {
             set_element_position(wall);
+        }
+    }
+
+    private void generateRandomBlocks()
+    {
+        Random_blocks = new Block[4];
+
+        int image_id = RandomPosition.nextInt(3);
+
+        for (int i = 0; i < Random_blocks.length; i++)
+        {
+            if(image_id == 0)
+            {
+                Image img = new Image(BLOCK_R1);
+                Random_blocks[i] = new Block(img);
+                set_element_position(Random_blocks[i]);
+                game_layout.getChildren().add(Random_blocks[i]);
+            }
+            else if(image_id == 1)
+            {
+                Image img = new Image(BLOCK_R2);
+                Random_blocks[i] = new Block(img);
+                set_element_position(Random_blocks[i]);
+                game_layout.getChildren().add(Random_blocks[i]);
+            }
+            else
+            {
+                Image img = new Image(BLOCK_R3);
+                Random_blocks[i] = new Block(img);
+                set_element_position(Random_blocks[i]);
+                game_layout.getChildren().add(Random_blocks[i]);
+            }
+        }
+    }
+
+    private void MoveRandomBlocks()
+    {
+        for (int i = 0; i < Random_blocks.length; i++)
+        {
+            Random_blocks[i].setLayoutY(Random_blocks[i].getLayoutY() + 3);
+        }
+    }
+
+    private void RelocateRandomBlocks()
+    {
+        for (int i = 0; i < Random_blocks.length; i++)
+        {
+            if(Random_blocks[i].getLayoutY() >= GAME_HEIGHT)
+                set_element_position(Random_blocks[i]);
         }
     }
 }
