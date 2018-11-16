@@ -11,6 +11,7 @@ public class Coins extends ImageView implements BoardObjects
         super(image);
         this.setFitWidth(40);
         this.setFitHeight(40);
+        this.setValue(5);
     }
 
     public int getValue() {

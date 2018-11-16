@@ -9,8 +9,9 @@ public class Block extends ImageView implements Restrictions
     public Block(Image image)
     {
         super(image);
-        super.setFitWidth(65.0);
-        super.setFitHeight(65.0);
+        super.setFitWidth(100.0);
+        super.setFitHeight(100.0);
+        this.value = 1;
     }
 
     public int getValue() {

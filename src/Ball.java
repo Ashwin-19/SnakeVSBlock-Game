@@ -11,6 +11,7 @@ public class Ball extends ImageView implements Tokens
         super(image);
         this.setFitWidth(40);
         this.setFitHeight(40);
+        this.value = 3;
     }
 
     @Override

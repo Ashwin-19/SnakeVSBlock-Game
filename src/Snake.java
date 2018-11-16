@@ -10,21 +10,26 @@ public class Snake extends ImageView implements BoardObjects
     private boolean leftkey;
     private boolean rightkey;
 
-    Snake(int x, int y, Image image)
+    public Snake(double x, double y, Image image)
     {
         super(image);
         this.setLayoutX(x);
         this.setLayoutY(y);
     }
 
-    void move()
+    void move(Wall[] walls)
     {
+        for (int i = 0; i < walls.length; i++)
+        {
+            //
+        }
+
         if (leftkey && !rightkey && getLayoutX() > 0)
         {
             setLayoutX(getLayoutX() - 10);
         }
 
-        if (!leftkey && rightkey && getLayoutX() < 640)
+        if (!leftkey && rightkey && getLayoutX() < 590)
         {
             setLayoutX(getLayoutX() + 10);
         }
