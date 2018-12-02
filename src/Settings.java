@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 public class Settings extends Application
 {
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception
+    {
         primaryStage.setTitle("Snake VS Block");
         Parent root = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         Scene scene = new Scene(root, 600,800);

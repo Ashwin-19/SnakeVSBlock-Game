@@ -22,7 +22,6 @@ import java.io.*;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javafx.animation.*;
 
 public class Board extends Application implements Serializable {
@@ -86,7 +85,7 @@ public class Board extends Application implements Serializable {
     private static final String SNAKE_URL = "assets/snake/snake.png";
     private Snake snake_head;
     private Text snake_value;
-    private double speed;
+    public static double speed;
     private AnimationTimer animationTimer;
 
     public void setColour(String colour) {
@@ -135,7 +134,8 @@ public class Board extends Application implements Serializable {
         RandomPosition = new Random();
         initialized = 1;
         initialized_wall = 1;
-        speed = 4;
+
+        speed = 4.5;
 
         make_game();
         make_background();
@@ -1304,7 +1304,6 @@ public class Board extends Application implements Serializable {
                 snake_tail[i] = null;
             }
         }
-
     }
 
     private void increase_snaketail(int value)
