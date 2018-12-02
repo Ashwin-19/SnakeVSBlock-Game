@@ -15,6 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -24,11 +25,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.animation.*;
 
-public class Board extends Application implements Serializable {
-
+public class Board extends Application implements Serializable
+{
     // In screen components
-    private Stage game_window;
+    public static Stage game_window;
     private Scene game;
+    private static Stage menu;
     private AnchorPane game_layout;
     private GridPane game_layout_1;
     private GridPane game_layout_2;
@@ -86,7 +88,12 @@ public class Board extends Application implements Serializable {
     private Snake snake_head;
     private Text snake_value;
     public static double speed;
-    private AnimationTimer animationTimer;
+    private boolean delay_status;
+    private static AnimationTimer animationTimer;
+
+    //Animations
+    private Circle[] circles;
+    private boolean collide_status;
 
     public void setColour(String colour) {
         this.colour = colour;
@@ -130,6 +137,17 @@ public class Board extends Application implements Serializable {
         game_window.setTitle("Snake VS Block");
         game_window.setResizable(false);
         game_layout = new AnchorPane();
+
+        //animations
+        circles = new Circle[5];
+        for (int i = 0; i < circles.length; i++)
+        {
+            circles[i] = new Circle();
+            circles[i].setRadius(10);
+            circles[i].setFill(Color.YELLOW);
+        }
+
+        collide_status = false;
 
         RandomPosition = new Random();
         initialized = 1;
@@ -189,22 +207,13 @@ public class Board extends Application implements Serializable {
                 {
                     e.printStackTrace();
                 }
-                int playerscore = Integer.parseInt(score.getText());
-                Player.getCurrent_player().setScore(playerscore);
-                if(playerscore > Player.getCurrent_player().getHighScore())
-                {
-                    Player.getCurrent_player().setHighScore(playerscore);
-                    Player_Data.add_to_leaderboard(Player.getCurrent_player());
-                }
-                try {
-                    Game.serialize_board();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Stage Menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+                animationTimer.stop();
+                game_window.hide();
+                menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root, GAME_WIDTH, GAME_HEIGHT);
-                Menu.setScene(scene);
-                Menu.show();
+                menu.setScene(scene);
+                menu.show();
             }
         });
 
@@ -294,6 +303,7 @@ public class Board extends Application implements Serializable {
             {
                 try
                 {
+                    animation_collide();
                     move_background();
                     MoveBalls();
                     MoveBlocks();
@@ -306,6 +316,7 @@ public class Board extends Application implements Serializable {
                     move_snaketail();
                     attract_coins();
                     HandleCollisions();
+                    HandleCollisionAnimations();
                     RelocateBalls();
                     RelocateWalls();
                     Relocate();
@@ -325,11 +336,58 @@ public class Board extends Application implements Serializable {
         animationTimer.start();
     }
 
+    private void HandleCollisionAnimations()
+    {
+        if(collide_status == true)
+        {
+            for (int i = 0; i < circles.length; i++)
+            {
+                circles[i].setLayoutX(snake_head.getLayoutX());
+                circles[i].setLayoutY(snake_head.getLayoutY());
+            }
+        }
+        collide_status = false;
+    }
+
+    private void HandleMagnetAnimations()
+    {
+        for (int i = 0; i < circles.length; i++)
+        {
+            circles[i].setLayoutX(snake_head.getLayoutX());
+            circles[i].setLayoutY(snake_head.getLayoutY());
+        }
+    }
+
+    private void animation_collide()
+    {
+        circles[0].setLayoutY(circles[0].getLayoutY() + 56.56);
+
+        circles[1].setLayoutY(circles[1].getLayoutY() + 40);
+        circles[1].setLayoutX(circles[1].getLayoutX() + 40);
+
+        circles[2].setLayoutY(circles[2].getLayoutY() - 40);
+        circles[2].setLayoutX(circles[2].getLayoutX() - 40);
+
+        circles[3].setLayoutY(circles[3].getLayoutY() + 40);
+        circles[3].setLayoutX(circles[3].getLayoutX() - 40);
+
+        circles[4].setLayoutY(circles[4].getLayoutY() - 40);
+        circles[4].setLayoutX(circles[4].getLayoutX() + 40);
+    }
+
     private void attract_coins()
     {
         if(magnet_status)
         {
-            //move coin
+            for(int i = 0; i < CoinsArr.length; i++)
+            {
+                if(CoinsArr[i] != null)
+                {
+                    coins.setText(Integer.toString(Integer.parseInt(coins.getText()) + CoinsArr[i].getValue()));
+                    set_element_position(CoinsArr[i]);
+                    HandleMagnetAnimations();
+                }
+            }
         }
     }
 
@@ -390,6 +448,12 @@ public class Board extends Application implements Serializable {
         {
             snake_tail[i-1] = new Snake(350, 500 + 25*i, image);
             game_layout.getChildren().add(snake_tail[i-1]);
+        }
+        for (int i = 0; i < circles.length; i++)
+        {
+            circles[i].setLayoutX(snake_head.getLayoutX());
+            circles[i].setLayoutY(snake_head.getLayoutY());
+            game_layout.getChildren().add(circles[i]);
         }
     }
 
@@ -882,7 +946,7 @@ public class Board extends Application implements Serializable {
 
     private void generate_magnets()
     {
-        Magnets = new Magnet[1];
+        Magnets = new Magnet[4];
         Image MAGNET_IMG = new Image(MAGNET_URL);
 
         for (int i = 0; i < Magnets.length; i++)
@@ -914,7 +978,7 @@ public class Board extends Application implements Serializable {
 
     private void generate_coins()
     {
-        CoinsArr = new Coins[1];
+        CoinsArr = new Coins[5];
         Image COINS_IMG = new Image(COINS_URL);
 
         for (int i = 0; i < CoinsArr.length; i++)
@@ -1092,11 +1156,11 @@ public class Board extends Application implements Serializable {
 
     private void HandleCollisions() throws java.io.IOException
     {
-
         for (int i = 0; i < Magnets.length; i++)
         {
             if(snake_head.getBoundsInParent().intersects(Magnets[i].getBoundsInParent()))
             {
+                collide_status = true;
                 Timer timer = new Timer();
                 TimerTask task = new TimerTask() {
                     int time = 1;
@@ -1105,7 +1169,6 @@ public class Board extends Application implements Serializable {
                         if(time < 5)
                         {
                             magnet_status = true;
-                            System.out.println(time);
                             time += 1;
                         }
                         else
@@ -1124,6 +1187,7 @@ public class Board extends Application implements Serializable {
         {
             if(snake_head.getBoundsInParent().intersects(DBlocks[i].getBoundsInParent()))
             {
+                collide_status = true;
                 for (int j = 0; j < Blocks.length; j++)
                 {
                     if(Blocks[j] != null && Blocks_label[j] != null && 0 < Blocks[j].getLayoutY() && Blocks[j].getLayoutY() < GAME_HEIGHT)
@@ -1189,7 +1253,6 @@ public class Board extends Application implements Serializable {
                         if(time < 5)
                         {
                             shield_status = true;
-                            System.out.println(time);
                             time += 1;
                         }
                         else
@@ -1208,6 +1271,7 @@ public class Board extends Application implements Serializable {
         {
             if( Blocks[i]!= null && Blocks[i].isVisible() && snake_head.getBoundsInParent().intersects(Blocks[i].getBoundsInParent()))
             {
+                collide_status = true;
                 if(Blocks[i].getValue() >= snake_head.getLength() && !shield_status)
                 {
                     int playerscore = Integer.parseInt(score.getText());
@@ -1247,6 +1311,7 @@ public class Board extends Application implements Serializable {
         {
             if( Blocks_1[i]!= null && Blocks_1[i].isVisible() && snake_head.getBoundsInParent().intersects(Blocks_1[i].getBoundsInParent()))
             {
+                collide_status = true;
                 if(Blocks_1[i].getValue() >= snake_head.getLength() && !shield_status)
                 {
                     int playerscore = Integer.parseInt(score.getText());

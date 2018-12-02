@@ -91,14 +91,7 @@ public class Player implements Serializable, Cloneable
 
     public void resume_game(Event event) throws Exception
     {
-        Game.deserialize_board(event);
     }
-
-    public void increase_score(int points)
-    {
-        this.setScore(this.getScore() + points);
-    }
-
 }
 
 class PlayerComparator implements Comparator<Player>

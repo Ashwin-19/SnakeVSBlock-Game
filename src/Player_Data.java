@@ -5,6 +5,7 @@ public class Player_Data implements Serializable
 {
     public static ArrayList<Player> Leaderboard = new ArrayList<>();
     public static ArrayList<Player> All_Players = new ArrayList<>();
+
     private static PlayerComparator cmp;
 
     public static ArrayList<Player> getLeaderboard() {
@@ -34,7 +35,7 @@ public class Player_Data implements Serializable
         int size = Leaderboard.size();
         cmp = new PlayerComparator();
 
-        if(size != 0)
+        if(size >= 10)
         {
             if(Leaderboard.get(size-1).getHighScore() > A.getHighScore())
             {
@@ -57,6 +58,7 @@ public class Player_Data implements Serializable
         else
         {
             Leaderboard.add(A);
+            Collections.sort(Leaderboard, cmp);
         }
     }
 }

@@ -41,14 +41,6 @@
                </image>
             </ImageView>
          </graphic></Button>
-       <Button layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#Settings" prefHeight="89.0" prefWidth="87.0" style="-fx-background-color: BLACK;">
-         <graphic>
-            <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/gameicons/PNG/White/2x/gear.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
        <Button layoutX="503.0" layoutY="705.0" mnemonicParsing="false" onAction="#Exit" prefHeight="63.0" prefWidth="66.0" style="-fx-background-color: BLACK;">
          <graphic>
             <ImageView fitHeight="63.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">

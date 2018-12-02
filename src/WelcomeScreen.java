@@ -12,6 +12,11 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 
@@ -68,6 +73,25 @@ public class WelcomeScreen extends Application
             Scene Menu = new Scene(root, 600, 800);
             welcome_screen.setScene(Menu);
             welcome_screen.show();
+        }
+
+        int flag = 0;
+        ArrayList<Player> leaderboard = null;
+
+        try
+        {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File("Board_Database.txt")));
+            leaderboard = (ArrayList<Player>) in.readObject();
+            flag = 1;
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+        if(flag == 1)
+        {
+            Player_Data.Leaderboard = leaderboard;
         }
     }
 }
