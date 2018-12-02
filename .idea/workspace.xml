@@ -133,6 +133,24 @@
             <path>
               <item name="SnakeVsBlock" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnakeVsBlock" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SnakeVsBlock" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnakeVsBlock" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SnakeVsBlock" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnakeVsBlock" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="SnakeVsBlock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SnakeVsBlock" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnakeVsBlock" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -710,7 +728,7 @@
         <state relative-caret-position="3591">
           <caret line="171" column="52" lean-forward="false" selection-start-line="171" selection-start-column="52" selection-end-line="171" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -720,15 +738,15 @@
         <state relative-caret-position="278">
           <caret line="1259" column="50" lean-forward="true" selection-start-line="1259" selection-start-column="50" selection-end-line="1259" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#increment_speed#0;class#Board#0" expanded="false" />
             <element signature="method#move#0;class#Board#0" expanded="false" />
             <element signature="method#start#0;class#Board#0" expanded="false" />
             <element signature="method#make_buttons#0;class#Board#0" expanded="false" />
-            <element signature="e#5762#5763#0" expanded="true" />
-            <element signature="e#5815#5816#0" expanded="true" />
-            <element signature="e#7329#7330#0" expanded="true" />
-            <element signature="e#7383#7384#0" expanded="true" />
+            <element signature="e#5762#5763#0" expanded="false" />
+            <element signature="e#5815#5816#0" expanded="false" />
+            <element signature="e#7329#7330#0" expanded="false" />
+            <element signature="e#7383#7384#0" expanded="false" />
             <element signature="method#createKeyListeners#0;class#Board#0" expanded="false" />
             <element signature="method#make_game#0;class#Board#0" expanded="false" />
             <element signature="method#make_game_loop#0;class#Board#0" expanded="false" />
