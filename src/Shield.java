@@ -8,9 +8,9 @@ public class Shield extends ImageView implements Tokens, Serializable
     private Point Coordinate;
     private int duration;
 
-    public Shield(Image immge)
+    public Shield(Image image)
     {
-        super(immge);
+        super(image);
         this.setFitWidth(40);
         this.setFitHeight(40);
     }
@@ -27,4 +27,5 @@ public class Shield extends ImageView implements Tokens, Serializable
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
 }

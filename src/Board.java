@@ -4,12 +4,9 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -18,15 +15,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.animation.*;
 
@@ -65,10 +60,12 @@ public class Board extends Application implements Serializable {
     private Text[] Ball_Values;
     private static final String BALL_URL = "assets/gameicons/PNG/White/2x/target.png";
     private Magnet[] Magnets;
+    private boolean magnet_status;
     private static final String MAGNET_URL = "assets/tokens/magnet.png";
     private Coins[] CoinsArr;
     private static final String COINS_URL = "assets/tokens/Coin.png";
     private Shield[] Shields;
+    private boolean shield_status;
     private static final String SHIELD_URL = "assets/tokens/shield.png";
     private Random RandomPosition;
     private Destroy_Blocks[] DBlocks;
@@ -307,6 +304,7 @@ public class Board extends Application implements Serializable {
                     MoveDBlocks();
                     snake_head.move(Walls, snake_value);
                     move_snaketail();
+                    attract_coins();
                     HandleCollisions();
                     RelocateBalls();
                     RelocateWalls();
@@ -325,6 +323,14 @@ public class Board extends Application implements Serializable {
         };
 
         animationTimer.start();
+    }
+
+    private void attract_coins()
+    {
+        if(magnet_status)
+        {
+            //move coin
+        }
     }
 
     private void make_background()
@@ -1091,6 +1097,25 @@ public class Board extends Application implements Serializable {
         {
             if(snake_head.getBoundsInParent().intersects(Magnets[i].getBoundsInParent()))
             {
+                Timer timer = new Timer();
+                TimerTask task = new TimerTask() {
+                    int time = 1;
+                    @Override
+                    public void run() {
+                        if(time < 5)
+                        {
+                            magnet_status = true;
+                            System.out.println(time);
+                            time += 1;
+                        }
+                        else
+                        {
+                            magnet_status = false;
+                            timer.cancel();
+                        }
+                    }
+                };
+                timer.schedule(task, 0, 1000);
                 set_element_position(Magnets[i]);
             }
         }
@@ -1122,7 +1147,6 @@ public class Board extends Application implements Serializable {
                         Blocks_label1[j].setVisible(false);
                     }
                 }
-
                 set_element_position(DBlocks[i]);
             }
         }
@@ -1136,6 +1160,7 @@ public class Board extends Application implements Serializable {
                 int end = start + increment_value;
                 increase_snaketail(Balls[i].getValue());
                 snake_head.setLength(end);
+                snake_value.setText(Integer.toString(end));
                 set_ball_position(Balls[i], i);
                 Ball_Values[i].setVisible(false);
             }
@@ -1156,6 +1181,25 @@ public class Board extends Application implements Serializable {
         {
             if(snake_head.getBoundsInParent().intersects(Shields[i].getBoundsInParent()))
             {
+                Timer timer = new Timer();
+                TimerTask task = new TimerTask() {
+                    int time = 1;
+                    @Override
+                    public void run() {
+                        if(time < 5)
+                        {
+                            shield_status = true;
+                            System.out.println(time);
+                            time += 1;
+                        }
+                        else
+                        {
+                            shield_status = false;
+                            timer.cancel();
+                        }
+                    }
+                };
+                timer.schedule(task, 0, 1000);
                 set_element_position(Shields[i]);
             }
         }
@@ -1164,7 +1208,7 @@ public class Board extends Application implements Serializable {
         {
             if( Blocks[i]!= null && Blocks[i].isVisible() && snake_head.getBoundsInParent().intersects(Blocks[i].getBoundsInParent()))
             {
-                if(Blocks[i].getValue() >= snake_head.getLength())
+                if(Blocks[i].getValue() >= snake_head.getLength() && !shield_status)
                 {
                     int playerscore = Integer.parseInt(score.getText());
                     Player.getCurrent_player().setScore(playerscore);
@@ -1186,9 +1230,13 @@ public class Board extends Application implements Serializable {
                     int curr_score = Integer.parseInt(score.getText());
                     curr_score += Blocks[i].getValue();
                     score.setText(Integer.toString(curr_score));
-                    snake_head.setLength(snake_head.getLength() - Blocks[i].getValue());
-                    speed -= Blocks[i].getValue()*0.001;
-                    decrease_snaketail(Blocks[i].getValue());
+                    if(!shield_status)
+                    {
+                        snake_head.setLength(snake_head.getLength() - Blocks[i].getValue());
+                        decrease_snaketail(Blocks[i].getValue());
+                        snake_value.setText(Integer.toString(snake_head.getLength()));
+                        speed -= Blocks[i].getValue()*0.001;
+                    }
                 }
                 Blocks[i].setVisible(false);
                 Blocks_label[i].setVisible(false);
@@ -1199,7 +1247,7 @@ public class Board extends Application implements Serializable {
         {
             if( Blocks_1[i]!= null && Blocks_1[i].isVisible() && snake_head.getBoundsInParent().intersects(Blocks_1[i].getBoundsInParent()))
             {
-                if(Blocks_1[i].getValue() >= snake_head.getLength())
+                if(Blocks_1[i].getValue() >= snake_head.getLength() && !shield_status)
                 {
                     int playerscore = Integer.parseInt(score.getText());
                     Player.getCurrent_player().setScore(playerscore);
@@ -1221,9 +1269,13 @@ public class Board extends Application implements Serializable {
                     int curr_score = Integer.parseInt(score.getText());
                     curr_score += Blocks_1[i].getValue();
                     score.setText(Integer.toString(curr_score));
-                    snake_head.setLength(snake_head.getLength() - Blocks_1[i].getValue());
-                    speed -= Blocks_1[i].getValue()*0.001;
-                    decrease_snaketail(Blocks_1[i].getValue());
+                    if(!shield_status)
+                    {
+                        snake_head.setLength(snake_head.getLength() - Blocks_1[i].getValue());
+                        decrease_snaketail(Blocks_1[i].getValue());
+                        snake_value.setText(Integer.toString(snake_head.getLength()));
+                        speed -= Blocks_1[i].getValue()*0.001;
+                    }
                 }
                 Blocks_1[i].setVisible(false);
                 Blocks_label1[i].setVisible(false);

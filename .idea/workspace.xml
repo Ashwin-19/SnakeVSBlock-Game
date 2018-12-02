@@ -12,24 +12,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="307" column="56" lean-forward="false" selection-start-line="307" selection-start-column="56" selection-end-line="307" selection-end-column="56" />
+            <state relative-caret-position="223">
+              <caret line="308" column="36" lean-forward="true" selection-start-line="308" selection-start-column="36" selection-end-line="308" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#increment_speed#0;class#Board#0" expanded="false" />
                 <element signature="method#move#0;class#Board#0" expanded="false" />
                 <element signature="method#start#0;class#Board#0" expanded="false" />
                 <element signature="method#make_buttons#0;class#Board#0" expanded="false" />
-                <element signature="class#5265:5431" expanded="false" />
-                <element signature="class#5759:6980" expanded="false" />
-                <element signature="method#handle#0;class#5759:6980" expanded="false" />
-                <element signature="class#7330:7497" expanded="false" />
+                <element signature="class#5177:5343" expanded="false" />
+                <element signature="e#5279#5280#0" expanded="true" />
+                <element signature="e#5332#5333#0" expanded="true" />
+                <element signature="class#5671:6892" expanded="false" />
+                <element signature="method#handle#0;class#5671:6892" expanded="false" />
+                <element signature="class#7242:7409" expanded="false" />
+                <element signature="e#7344#7345#0" expanded="true" />
+                <element signature="e#7398#7399#0" expanded="true" />
+                <element signature="method#createKeyListeners#0;class#Board#0" expanded="false" />
                 <element signature="method#make_game#0;class#Board#0" expanded="false" />
+                <element signature="e#9621#10639#0" expanded="true" />
+                <element signature="e#10638#10639#0" expanded="true" />
                 <element signature="method#make_background#0;class#Board#0" expanded="false" />
                 <element signature="method#move_background#0;class#Board#0" expanded="false" />
+                <element signature="method#make_snake#0;class#Board#0" expanded="false" />
                 <element signature="method#generate_balls#0;class#Board#0" expanded="false" />
                 <element signature="method#set_ball_position#0;class#Board#0" expanded="false" />
                 <element signature="method#set_element_position#0;class#Board#0" expanded="false" />
@@ -63,52 +71,8 @@
                 <element signature="method#set_wall_position#0;class#Board#0" expanded="false" />
                 <element signature="method#MoveWalls#0;class#Board#0" expanded="false" />
                 <element signature="method#RelocateWalls#0;class#Board#0" expanded="false" />
-                <element signature="method#HandleCollisions#0;class#Board#0" expanded="false" />
-                <element signature="method#decrease_snaketail#0;class#Board#0" expanded="false" />
                 <element signature="method#increase_snaketail#0;class#Board#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Snake.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Snake.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2141#2142#0" expanded="true" />
-                <element signature="e#2179#2180#0" expanded="true" />
-                <element signature="e#2232#2233#0" expanded="true" />
-                <element signature="e#2272#2273#0" expanded="true" />
-                <element signature="e#2302#2303#0" expanded="true" />
-                <element signature="e#2331#2332#0" expanded="true" />
-                <element signature="e#2372#2373#0" expanded="true" />
-                <element signature="e#2408#2409#0" expanded="true" />
-                <element signature="e#2452#2453#0" expanded="true" />
-                <element signature="e#2488#2489#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Wall.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Wall.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Block.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="5" column="74" lean-forward="false" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -126,8 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>leaderboard</find>
-      <find>collision</find>
       <find>Board</find>
       <find>serialize</find>
       <find>pause</find>
@@ -139,7 +101,6 @@
       <find>Player</find>
       <find>increase_snake</find>
       <find>decrease_snaketail</find>
-      <find>game_loop</find>
       <find>speed</find>
       <find>set_block_posi</find>
       <find>blocks</find>
@@ -156,6 +117,9 @@
       <find>generate_balls</find>
       <find>moveBloc</find>
       <find>snake_head.</find>
+      <find>timer</find>
+      <find>handle</find>
+      <find>game_loop</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -191,13 +155,13 @@
         <option value="$PROJECT_DIR$/src/Coins.java" />
         <option value="$PROJECT_DIR$/src/Destroy_Blocks.java" />
         <option value="$PROJECT_DIR$/src/Magnet.java" />
-        <option value="$PROJECT_DIR$/src/Shield.java" />
         <option value="$PROJECT_DIR$/src/Wall.java" />
         <option value="$PROJECT_DIR$/src/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Player_Data.java" />
-        <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/Snake.java" />
+        <option value="$PROJECT_DIR$/src/Shield.java" />
+        <option value="$PROJECT_DIR$/src/Board.java" />
       </list>
     </option>
   </component>
@@ -328,6 +292,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
@@ -337,12 +302,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14696133" sideWeight="0.5052083" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27734807" sideWeight="0.49479166" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19668508" sideWeight="0.49479166" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -750,14 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shield.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="5" column="69" lean-forward="false" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WelcomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -808,35 +765,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="5" column="74" lean-forward="false" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
-          <folding />
+          <folding>
+            <element signature="method#Block#0;class#Block#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Wall.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        <state relative-caret-position="84">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="method#Wall#0;class#Wall#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-853">
+          <caret line="36" column="55" lean-forward="false" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#2179#2180#0" expanded="true" />
+            <element signature="e#2232#2233#0" expanded="true" />
+            <element signature="e#2272#2273#0" expanded="true" />
+            <element signature="e#2302#2303#0" expanded="true" />
+            <element signature="e#2331#2332#0" expanded="true" />
+            <element signature="e#2372#2373#0" expanded="true" />
+            <element signature="e#2408#2409#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
+            <element signature="e#2488#2489#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shield.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="307" column="56" lean-forward="false" selection-start-line="307" selection-start-column="56" selection-end-line="307" selection-end-column="56" />
+        <state relative-caret-position="223">
+          <caret line="308" column="36" lean-forward="true" selection-start-line="308" selection-start-column="36" selection-end-line="308" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#increment_speed#0;class#Board#0" expanded="false" />
             <element signature="method#move#0;class#Board#0" expanded="false" />
             <element signature="method#start#0;class#Board#0" expanded="false" />
             <element signature="method#make_buttons#0;class#Board#0" expanded="false" />
-            <element signature="class#5265:5431" expanded="false" />
-            <element signature="class#5759:6980" expanded="false" />
-            <element signature="method#handle#0;class#5759:6980" expanded="false" />
-            <element signature="class#7330:7497" expanded="false" />
+            <element signature="class#5177:5343" expanded="false" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5332#5333#0" expanded="true" />
+            <element signature="class#5671:6892" expanded="false" />
+            <element signature="method#handle#0;class#5671:6892" expanded="false" />
+            <element signature="class#7242:7409" expanded="false" />
+            <element signature="e#7344#7345#0" expanded="true" />
+            <element signature="e#7398#7399#0" expanded="true" />
+            <element signature="method#createKeyListeners#0;class#Board#0" expanded="false" />
             <element signature="method#make_game#0;class#Board#0" expanded="false" />
+            <element signature="e#9621#10639#0" expanded="true" />
+            <element signature="e#10638#10639#0" expanded="true" />
             <element signature="method#make_background#0;class#Board#0" expanded="false" />
             <element signature="method#move_background#0;class#Board#0" expanded="false" />
+            <element signature="method#make_snake#0;class#Board#0" expanded="false" />
             <element signature="method#generate_balls#0;class#Board#0" expanded="false" />
             <element signature="method#set_ball_position#0;class#Board#0" expanded="false" />
             <element signature="method#set_element_position#0;class#Board#0" expanded="false" />
@@ -870,29 +867,7 @@
             <element signature="method#set_wall_position#0;class#Board#0" expanded="false" />
             <element signature="method#MoveWalls#0;class#Board#0" expanded="false" />
             <element signature="method#RelocateWalls#0;class#Board#0" expanded="false" />
-            <element signature="method#HandleCollisions#0;class#Board#0" expanded="false" />
-            <element signature="method#decrease_snaketail#0;class#Board#0" expanded="false" />
             <element signature="method#increase_snaketail#0;class#Board#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
-            <element signature="e#2179#2180#0" expanded="true" />
-            <element signature="e#2232#2233#0" expanded="true" />
-            <element signature="e#2272#2273#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2331#2332#0" expanded="true" />
-            <element signature="e#2372#2373#0" expanded="true" />
-            <element signature="e#2408#2409#0" expanded="true" />
-            <element signature="e#2452#2453#0" expanded="true" />
-            <element signature="e#2488#2489#0" expanded="true" />
           </folding>
         </state>
       </provider>
