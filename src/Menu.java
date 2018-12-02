@@ -62,7 +62,12 @@ public class Menu extends Application
     @FXML
     protected void StartGame(ActionEvent e) throws Exception
     {
-        Player player = new Player("");
-        player.start_game(e);
+        Player.getCurrent_player().start_game(e);
+    }
+
+    @FXML
+    protected void ResumeGame(ActionEvent e) throws Exception
+    {
+        Player.getCurrent_player().resume_game(e);
     }
 }

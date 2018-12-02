@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Block extends ImageView implements Restrictions
+import java.io.Serializable;
+
+public class Block extends ImageView implements Restrictions, Serializable
 {
     private int value;
     private Point Coordinate;

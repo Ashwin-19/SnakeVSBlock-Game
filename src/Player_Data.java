@@ -1,14 +1,13 @@
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Player_Data implements Serializable
 {
-    public static TreeSet<Player> Leaderboard = new TreeSet<>();
+    public static ArrayList<Player> Leaderboard = new ArrayList<>();
     public static ArrayList<Player> All_Players = new ArrayList<>();
+    private static PlayerComparator cmp;
 
-    public static TreeSet<Player> getLeaderboard() {
+    public static ArrayList<Player> getLeaderboard() {
         return Leaderboard;
     }
 
@@ -22,16 +21,42 @@ public class Player_Data implements Serializable
         {
             if(All_Players.get(i).getName().equals(A.getName()))
             {
-                return 1;
+                return -1;
             }
         }
 
         All_Players.add(A);
-        return -1;
+        return 1;
     }
 
     public static void add_to_leaderboard(Player A)
     {
+        int size = Leaderboard.size();
+        cmp = new PlayerComparator();
 
+        if(size != 0)
+        {
+            if(Leaderboard.get(size-1).getHighScore() > A.getHighScore())
+            {
+                //don't add
+            }
+            else
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    if(Leaderboard.get(i).getHighScore() < A.getHighScore())
+                    {
+                        Leaderboard.remove(i);
+                        Leaderboard.add(A);
+                        Collections.sort(Leaderboard, cmp);
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            Leaderboard.add(A);
+        }
     }
 }

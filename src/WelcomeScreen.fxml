@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeScreen">
    <children>
       <ImageView fitHeight="370.0" fitWidth="299.0" layoutX="151.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/Title/ashwin.png" />
          </image>
       </ImageView>
-      <TextField layoutX="207.0" layoutY="605.0" text="ENTER NAME" />
+      <TextField fx:id="textField" layoutX="207.0" layoutY="605.0" text="ENTER NAME" />
       <Button layoutX="430.0" layoutY="576.0" mnemonicParsing="false" onAction="#Enter" style="-fx-background-color: BLACK;">
          <graphic>
             <ImageView fitHeight="69.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">

@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Shield extends ImageView implements Tokens
+import java.io.Serializable;
+
+public class Shield extends ImageView implements Tokens, Serializable
 {
     private Point Coordinate;
     private int duration;

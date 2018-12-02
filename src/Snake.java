@@ -1,8 +1,11 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import java.io.Serializable;
+import java.util.ArrayList;
+import javafx.scene.text.Text;
 
-public class Snake extends ImageView implements BoardObjects
+public class Snake extends ImageView implements BoardObjects, Serializable
 {
     private int length;
     private String colour;
@@ -17,21 +20,48 @@ public class Snake extends ImageView implements BoardObjects
         this.setLayoutY(y);
     }
 
-    void move(Wall[] walls)
+    void move(Wall[] walls, Text text)
     {
-        for (int i = 0; i < walls.length; i++)
-        {
-            //
-        }
+        double x = getLayoutX();
+        double y = getLayoutY();
+
+        boolean canmoveleft  = true;
+        boolean canmoveright = true;
 
         if (leftkey && !rightkey && getLayoutX() > 0)
         {
-            setLayoutX(getLayoutX() - 10);
+            for (int i = 0; i < walls.length; i++)
+            {
+                if(walls[i]!=null && (y > walls[i].getLayoutY() && y <= walls[i].getLayoutY() + walls[i].getFitHeight()) && walls[i].getLayoutX()<x)
+                {
+                    if(x - walls[i].getLayoutX() < 20){
+                        canmoveleft = false;
+                    }
+                }
+            }
+            if(canmoveleft)
+            {
+                setLayoutX(getLayoutX() - 10);
+                text.setLayoutX(getLayoutX() - 10);
+            }
         }
 
         if (!leftkey && rightkey && getLayoutX() < 590)
         {
-            setLayoutX(getLayoutX() + 10);
+            for (int i = 0; i < walls.length; i++)
+            {
+                if(walls[i]!=null && (y > walls[i].getLayoutY() && y <= walls[i].getLayoutY() + walls[i].getFitHeight()) && walls[i].getLayoutX()>x)
+                {
+                    if(-x + walls[i].getLayoutX() < 20){
+                        canmoveright = false;
+                    }
+                }
+            }
+            if(canmoveright)
+            {
+                setLayoutX(getLayoutX() + 10);
+                text.setLayoutX(getLayoutX() + 10);
+            }
         }
 
         if (!leftkey && !rightkey)

@@ -4,6 +4,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,10 +18,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.io.Serializable;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -30,7 +34,7 @@ public class Board extends Application implements Serializable {
 
     // In screen components
     private Stage game_window;
-    private Scene Game;
+    private Scene game;
     private AnchorPane game_layout;
     private GridPane game_layout_1;
     private GridPane game_layout_2;
@@ -47,6 +51,8 @@ public class Board extends Application implements Serializable {
     private static final String BACKGROUND_URL_2 = "assets/gamebg/BG2.jpg";
     private Block[] Blocks;
     private Block[] Blocks_1;
+    private Text[] Blocks_label;
+    private Text[] Blocks_label1;
     private int initialized;
     private int initialized_wall;
     private static final String BLOCK_R1 = "assets/Blocks/B_Blocks/yellow.png";
@@ -56,6 +62,7 @@ public class Board extends Application implements Serializable {
     private Image image2;
     private Image image3;
     private Ball[] Balls;
+    private Text[] Ball_Values;
     private static final String BALL_URL = "assets/gameicons/PNG/White/2x/target.png";
     private Magnet[] Magnets;
     private static final String MAGNET_URL = "assets/tokens/magnet.png";
@@ -77,8 +84,11 @@ public class Board extends Application implements Serializable {
     private Label coin_label;
     private Label coins;
     private BoardObjects board[][];
+
+    private Snake[] snake_tail;
     private static final String SNAKE_URL = "assets/snake/snake.png";
     private Snake snake_head;
+    private Text snake_value;
     private double speed;
     private AnimationTimer animationTimer;
 
@@ -100,7 +110,14 @@ public class Board extends Application implements Serializable {
 
     public void increment_speed()
     {
-        speed += 0.001;
+        if(snake_head.getLength() < 5.0)
+        {
+            speed = 4.0;
+        }
+        else
+        {
+            speed += snake_head.getLength()*0.0001;
+        }
     }
 
     public void move(Event event) throws Exception {
@@ -121,7 +138,7 @@ public class Board extends Application implements Serializable {
         RandomPosition = new Random();
         initialized = 1;
         initialized_wall = 1;
-        speed = 3.5;
+        speed = 4;
 
         make_game();
         make_background();
@@ -139,7 +156,7 @@ public class Board extends Application implements Serializable {
         RandomPosition = new Random();
     }
 
-    private void make_buttons()
+    private void make_buttons() throws IOException
     {
         pause = new Button();
         Image pause_img = new Image(PAUSE_URL);
@@ -173,6 +190,18 @@ public class Board extends Application implements Serializable {
                 }
                 catch (IOException e)
                 {
+                    e.printStackTrace();
+                }
+                int playerscore = Integer.parseInt(score.getText());
+                Player.getCurrent_player().setScore(playerscore);
+                if(playerscore > Player.getCurrent_player().getHighScore())
+                {
+                    Player.getCurrent_player().setHighScore(playerscore);
+                    Player_Data.add_to_leaderboard(Player.getCurrent_player());
+                }
+                try {
+                    Game.serialize_board();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
                 Stage Menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -224,23 +253,23 @@ public class Board extends Application implements Serializable {
     }
 
     private void createKeyListeners() {
-        Game.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        game.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.LEFT)
                 {
                     snake_head.setLeftkey(true);
-                    snake_head.move(Walls);
+                    snake_head.move(Walls, snake_value);
                 }
                 else if (event.getCode() == KeyCode.RIGHT)
                 {
                     snake_head.setRightkey(true);
-                    snake_head.move(Walls);
+                    snake_head.move(Walls, snake_value);
                 }
             }
         });
 
-        Game.setOnKeyReleased(new EventHandler<KeyEvent>() {
+        game.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.LEFT) {
@@ -254,8 +283,8 @@ public class Board extends Application implements Serializable {
 
     private void make_game()
     {
-        Game = new Scene(game_layout, GAME_WIDTH, GAME_HEIGHT);
-        game_window.setScene(Game);
+        game = new Scene(game_layout, GAME_WIDTH, GAME_HEIGHT);
+        game_window.setScene(game);
         game_window.show();
     }
 
@@ -276,7 +305,8 @@ public class Board extends Application implements Serializable {
                     MoveShields();
                     MoveWalls();
                     MoveDBlocks();
-                    snake_head.move(Walls);
+                    snake_head.move(Walls, snake_value);
+                    move_snaketail();
                     HandleCollisions();
                     RelocateBalls();
                     RelocateWalls();
@@ -338,22 +368,98 @@ public class Board extends Application implements Serializable {
 
     private void make_snake()
     {
+        snake_tail = new Snake[100];
         Image image = new Image(SNAKE_URL);
         snake_head = new Snake(350, 500, image);
+        snake_value = new Text("5");
+        snake_value.setFill(Color.WHITE);
+        snake_value.setFont(Font.font(15));
+        snake_value.setVisible(true);
+        snake_value.setLayoutX(350);
+        snake_value.setLayoutY(480);
         snake_head.setLength(5);
         game_layout.getChildren().add(snake_head);
+        game_layout.getChildren().add(snake_value);
+        for (int i = 1; i < 5; i++)
+        {
+            snake_tail[i-1] = new Snake(350, 500 + 25*i, image);
+            game_layout.getChildren().add(snake_tail[i-1]);
+        }
     }
 
     private void generate_balls()
     {
         Balls = new Ball[4];
+        Ball_Values = new Text[4];
+
         Image BALL_IMG = new Image(BALL_URL);
 
         for (int i = 0; i < Balls.length; i++)
         {
             Balls[i] = new Ball(BALL_IMG);
-            set_element_position(Balls[i]);
-            game_layout.getChildren().add(Balls[i]);
+            Ball_Values[i] = new Text();
+            set_ball_position(Balls[i], i);
+            game_layout.getChildren().addAll(Balls[i], Ball_Values[i]);
+        }
+    }
+
+    private void set_ball_position(Ball element, int index)
+    {
+        int relocate = RandomPosition.nextInt(2000);
+
+        if(relocate == 0)
+        {
+            int ball_value = RandomPosition.nextInt(snake_head.getLength()) + 1;
+
+            Balls[index].setValue(ball_value);
+            Ball_Values[index].setText(Integer.toString(ball_value));
+            Ball_Values[index].setFill(Color.WHITE);
+            Ball_Values[index].setFont(Font.font(15));
+            Ball_Values[index].setVisible(true);
+
+            double x = RandomPosition.nextDouble();
+            double y = RandomPosition.nextDouble();
+
+            for (int i = 0; i < Blocks.length; i++)
+            {
+                if(Blocks[i] != null)
+                {
+                    while(Blocks[i].getBoundsInParent().intersects(x*GAME_WIDTH,-1*y*GAME_HEIGHT, element.getFitWidth(), element.getFitHeight()))
+                    {
+                        x = RandomPosition.nextDouble();
+                        y = RandomPosition.nextDouble();
+                    }
+                }
+            }
+
+            for (int i = 0; i < Blocks_1.length; i++)
+            {
+                if(Blocks_1[i] != null)
+                {
+                    while(Blocks_1[i].getBoundsInParent().intersects(x*GAME_WIDTH,-1*y*GAME_HEIGHT, element.getFitWidth(), element.getFitHeight()))
+                    {
+                        x = RandomPosition.nextDouble();
+                        y = RandomPosition.nextDouble();
+                    }
+                }
+            }
+
+            element.setLayoutX(x*(GAME_WIDTH - element.getFitWidth()));
+            element.setLayoutY(y*(-GAME_HEIGHT));
+            Ball_Values[index].setLayoutX(element.getLayoutX());
+            Ball_Values[index].setLayoutY(element.getLayoutY());
+        }
+        else
+        {
+            element.setLayoutY(1100);
+            if(Ball_Values[index] != null)
+            {
+                Ball_Values[index].setLayoutY(1100);
+            }
+            else
+            {
+                Ball_Values[index] = new Text("");
+            }
         }
     }
 
@@ -389,7 +495,6 @@ public class Board extends Application implements Serializable {
                     }
                 }
             }
-
             element.setLayoutX(x*(GAME_WIDTH - element.getFitWidth()));
             element.setLayoutY(y*(-GAME_HEIGHT));
         }
@@ -409,6 +514,9 @@ public class Board extends Application implements Serializable {
 
         Blocks = new Block[6];
         Blocks_1 = new Block[6];
+
+        Blocks_label = new Text[6];
+        Blocks_label1 = new Text[6];
 
         for (int i = 0; i < empty_indices; i++)
         {
@@ -460,16 +568,12 @@ public class Board extends Application implements Serializable {
             if (i == empty_index_0  || i == empty_index_1 || i == empty_index_2)
             {
                 Blocks[i] = null;
+                Blocks_label[i] = null;
             }
             else if (image_id == 0)
             {
                 Block R1 = new Block(image1);
                 Blocks[i] = R1;
-
-//                Canvas canvas = new Canvas();
-//                GraphicsContext gc = new GraphicsContext(canvas);
-//                gc.fillText();
-//                gc.strokeText();
 
                 if(initialized > 0)
                 {
@@ -481,6 +585,7 @@ public class Board extends Application implements Serializable {
                     set_block_position(Blocks[i], i);
                 }
                 game_layout.getChildren().addAll(Blocks[i]);
+                game_layout.getChildren().addAll(Blocks_label[i]);
             }
             else if (image_id == 1)
             {
@@ -497,6 +602,7 @@ public class Board extends Application implements Serializable {
                     set_block_position(Blocks[i], i);
                 }
                 game_layout.getChildren().addAll(Blocks[i]);
+                game_layout.getChildren().addAll(Blocks_label[i]);
             }
             else
             {
@@ -513,6 +619,7 @@ public class Board extends Application implements Serializable {
                     set_block_position(Blocks[i],i);
                 }
                 game_layout.getChildren().addAll(Blocks[i]);
+                game_layout.getChildren().addAll(Blocks_label[i]);
             }
         }
     }
@@ -546,6 +653,7 @@ public class Board extends Application implements Serializable {
                     set_block_position1(Blocks_1[i],i);
                 }
                 game_layout.getChildren().addAll(Blocks_1[i]);
+                game_layout.getChildren().addAll(Blocks_label1[i]);
             }
             else if (image_id == 1)
             {
@@ -562,6 +670,7 @@ public class Board extends Application implements Serializable {
                     set_block_position1(Blocks_1[i],i);
                 }
                 game_layout.getChildren().addAll(Blocks_1[i]);
+                game_layout.getChildren().addAll(Blocks_label1[i]);
             }
             else
             {
@@ -578,6 +687,7 @@ public class Board extends Application implements Serializable {
                     set_block_position1(Blocks_1[i],i);
                 }
                 game_layout.getChildren().addAll(Blocks_1[i]);
+                game_layout.getChildren().addAll(Blocks_label1[i]);
             }
         }
 
@@ -587,28 +697,56 @@ public class Board extends Application implements Serializable {
         }
     }
 
-    private void set_initial_block_position(ImageView element, int index)
+    private void set_initial_block_position(Block element, int index)
     {
+        int Block_value = RandomPosition.nextInt(snake_head.getLength())+1;
+        element.setValue(Block_value);
+        Blocks_label[index] = new Text(Integer.toString(Block_value));
+        Blocks_label[index].setFill(Color.WHITE);
+        Blocks_label[index].setFont(Font.font(30));
         element.setLayoutX(index*105);
+        Blocks_label[index].setLayoutX(index*105 + 40);
         element.setLayoutY(-0.5*GAME_HEIGHT);
+        Blocks_label[index].setLayoutY(element.getLayoutY() + 50);
     }
 
-    private void set_initial_block_position1(ImageView element, int index)
+    private void set_initial_block_position1(Block element, int index)
     {
+        int Block_value = RandomPosition.nextInt(snake_head.getLength())+1;
+        element.setValue(Block_value);
+        Blocks_label1[index] = new Text(Integer.toString(Block_value));
+        Blocks_label1[index].setFill(Color.WHITE);
+        Blocks_label1[index].setFont(Font.font(30));
         element.setLayoutX(index*105);
+        Blocks_label1[index].setLayoutX(index*105 + 40);
         element.setLayoutY(-1.5*GAME_HEIGHT);
+        Blocks_label1[index].setLayoutY(element.getLayoutY() + 50);
     }
 
-    private void set_block_position(ImageView element, int index)
+    private void set_block_position(Block element, int index)
     {
+        int Block_value = RandomPosition.nextInt(snake_head.getLength())+1;
+        element.setValue(Block_value);
+        Blocks_label[index] = new Text(Integer.toString(Block_value));
+        Blocks_label[index].setFill(Color.WHITE);
+        Blocks_label[index].setFont(Font.font(30));
         element.setLayoutX(index*105);
+        Blocks_label[index].setLayoutX(index*105 + 40);
         element.setLayoutY(-GAME_HEIGHT);
+        Blocks_label[index].setLayoutY(element.getLayoutY() + 50);
     }
 
-    private void set_block_position1(ImageView element, int index)
+    private void set_block_position1(Block element, int index)
     {
+        int Block_value = RandomPosition.nextInt(snake_head.getLength())+1;
+        element.setValue(Block_value);
+        Blocks_label1[index] = new Text(Integer.toString(Block_value));
+        Blocks_label1[index].setFill(Color.WHITE);
+        Blocks_label1[index].setFont(Font.font(30));
         element.setLayoutX(index*105);
+        Blocks_label1[index].setLayoutX(index*105 + 40);
         element.setLayoutY(-GAME_HEIGHT);
+        Blocks_label1[index].setLayoutY(element.getLayoutY() + 50);
     }
 
     private void MoveBlocks()
@@ -618,6 +756,7 @@ public class Board extends Application implements Serializable {
             if(Blocks[i] != null)
             {
                 Blocks[i].setLayoutY(Blocks[i].getLayoutY() + speed);
+                Blocks_label[i].setLayoutY(Blocks[i].getLayoutY() + 60);
             }
         }
 
@@ -626,6 +765,22 @@ public class Board extends Application implements Serializable {
             if(Blocks_1[i] != null)
             {
                 Blocks_1[i].setLayoutY(Blocks_1[i].getLayoutY() + speed);
+                Blocks_label1[i].setLayoutY(Blocks_1[i].getLayoutY() + 60);
+            }
+        }
+    }
+
+    private void move_snaketail()
+    {
+        for (int i = 0; i < snake_tail.length; i++)
+        {
+            if(snake_tail[i]!=null)
+            {
+                if(!(snake_tail[i].isVisible()))
+                {
+                    snake_tail[i].setVisible(true);
+                }
+                snake_tail[i].setLayoutX(snake_head.getLayoutX());
             }
         }
     }
@@ -635,6 +790,11 @@ public class Board extends Application implements Serializable {
         for(int i = 0; i < Balls.length; i++)
         {
             Balls[i].setLayoutY(Balls[i].getLayoutY() + speed);
+
+            if(Ball_Values[i]!=null)
+            {
+                Ball_Values[i].setLayoutY(Balls[i].getLayoutY() + speed + 10);
+            }
         }
     }
 
@@ -644,7 +804,7 @@ public class Board extends Application implements Serializable {
         {
             if(Balls[i].getLayoutY() >= GAME_HEIGHT)
             {
-                set_element_position(Balls[i]);
+                set_ball_position(Balls[i], i);
             }
         }
     }
@@ -712,7 +872,6 @@ public class Board extends Application implements Serializable {
                 }
             }
         }
-
     }
 
     private void generate_magnets()
@@ -942,23 +1101,25 @@ public class Board extends Application implements Serializable {
             {
                 for (int j = 0; j < Blocks.length; j++)
                 {
-                    if(Blocks[j] != null &&  0 < Blocks[j].getLayoutY() && Blocks[j].getLayoutY() < GAME_HEIGHT)
+                    if(Blocks[j] != null && Blocks_label[j] != null && 0 < Blocks[j].getLayoutY() && Blocks[j].getLayoutY() < GAME_HEIGHT)
                     {
                         int curr_score = Integer.parseInt(score.getText());
                         curr_score += Blocks[j].getValue();
                         score.setText(Integer.toString(curr_score));
                         Blocks[j].setVisible(false);
+                        Blocks_label[j].setVisible(false);
                     }
                 }
 
                 for (int j = 0; j < Blocks_1.length; j++)
                 {
-                    if(Blocks_1[j] != null &&  0 < Blocks_1[j].getLayoutY() && Blocks_1[j].getLayoutY() < GAME_HEIGHT)
+                    if(Blocks_1[j] != null && Blocks_label1[j] != null && 0 < Blocks_1[j].getLayoutY() && Blocks_1[j].getLayoutY() < GAME_HEIGHT)
                     {
                         int curr_score = Integer.parseInt(score.getText());
                         curr_score += Blocks_1[j].getValue();
                         score.setText(Integer.toString(curr_score));
                         Blocks_1[j].setVisible(false);
+                        Blocks_label1[j].setVisible(false);
                     }
                 }
 
@@ -970,16 +1131,13 @@ public class Board extends Application implements Serializable {
         {
             if(snake_head.getBoundsInParent().intersects(Balls[i].getBoundsInParent()))
             {
-//                Image snake_img = new Image(SNAKE_URL);
                 int increment_value = Balls[i].getValue();
-
                 int start = snake_head.getLength();
                 int end = start + increment_value;
-
+                increase_snaketail(Balls[i].getValue());
                 snake_head.setLength(end);
-
-//                System.out.println(snake_head.getLength());
-                set_element_position(Balls[i]);
+                set_ball_position(Balls[i], i);
+                Ball_Values[i].setVisible(false);
             }
         }
 
@@ -1006,11 +1164,15 @@ public class Board extends Application implements Serializable {
         {
             if( Blocks[i]!= null && Blocks[i].isVisible() && snake_head.getBoundsInParent().intersects(Blocks[i].getBoundsInParent()))
             {
-//                System.out.println("hii");
-//                System.out.println(Blocks[i].getValue());
-//                System.out.println(snake_head.getLength());
                 if(Blocks[i].getValue() >= snake_head.getLength())
                 {
+                    int playerscore = Integer.parseInt(score.getText());
+                    Player.getCurrent_player().setScore(playerscore);
+                    if(playerscore > Player.getCurrent_player().getHighScore())
+                    {
+                        Player.getCurrent_player().setHighScore(playerscore);
+                        Player_Data.add_to_leaderboard(Player.getCurrent_player());
+                    }
                     animationTimer.stop();
                     game_window.close();
                     Parent root = FXMLLoader.load(getClass().getResource("EndGame.fxml"));
@@ -1025,8 +1187,11 @@ public class Board extends Application implements Serializable {
                     curr_score += Blocks[i].getValue();
                     score.setText(Integer.toString(curr_score));
                     snake_head.setLength(snake_head.getLength() - Blocks[i].getValue());
+                    speed -= Blocks[i].getValue()*0.001;
+                    decrease_snaketail(Blocks[i].getValue());
                 }
                 Blocks[i].setVisible(false);
+                Blocks_label[i].setVisible(false);
             }
         }
 
@@ -1034,12 +1199,15 @@ public class Board extends Application implements Serializable {
         {
             if( Blocks_1[i]!= null && Blocks_1[i].isVisible() && snake_head.getBoundsInParent().intersects(Blocks_1[i].getBoundsInParent()))
             {
-//                System.out.println("hoo");
-//                System.out.println(Blocks_1[i].getValue());
-//                System.out.println(snake_head.getLength());
-
                 if(Blocks_1[i].getValue() >= snake_head.getLength())
                 {
+                    int playerscore = Integer.parseInt(score.getText());
+                    Player.getCurrent_player().setScore(playerscore);
+                    if(playerscore > Player.getCurrent_player().getHighScore())
+                    {
+                        Player.getCurrent_player().setHighScore(playerscore);
+                        Player_Data.add_to_leaderboard(Player.getCurrent_player());
+                    }
                     animationTimer.stop();
                     game_window.close();
                     Parent root = FXMLLoader.load(getClass().getResource("EndGame.fxml"));
@@ -1054,9 +1222,59 @@ public class Board extends Application implements Serializable {
                     curr_score += Blocks_1[i].getValue();
                     score.setText(Integer.toString(curr_score));
                     snake_head.setLength(snake_head.getLength() - Blocks_1[i].getValue());
+                    speed -= Blocks_1[i].getValue()*0.001;
+                    decrease_snaketail(Blocks_1[i].getValue());
                 }
                 Blocks_1[i].setVisible(false);
+                Blocks_label1[i].setVisible(false);
             }
+        }
+    }
+
+    private void decrease_snaketail(int value)
+    {
+        int index = 0;
+
+        for(int i = 99; i >= 0; i--)
+        {
+            if(snake_tail[i] != null)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        for (int i = index; i > index-value; i--)
+        {
+            if(snake_tail[i]!=null)
+            {
+                snake_tail[i].setVisible(false);
+                snake_tail[i] = null;
+            }
+        }
+
+    }
+
+    private void increase_snaketail(int value)
+    {
+        int index = 0;
+
+        for(int i = 0; i <= 99; i++)
+        {
+            if(snake_tail[i] == null)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        Image image = new Image(SNAKE_URL);
+
+        for (int i = index; i < index+value; i++)
+        {
+            snake_tail[i] = new Snake(350, 500 + 25*(i+1), image);
+            snake_tail[i].setVisible(false);
+            game_layout.getChildren().add(snake_tail[i]);
         }
     }
 }

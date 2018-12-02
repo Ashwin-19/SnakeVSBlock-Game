@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Coins extends ImageView implements BoardObjects
+import java.io.Serializable;
+
+public class Coins extends ImageView implements BoardObjects, Serializable
 {
     private int value;
     private Point Coordinate;

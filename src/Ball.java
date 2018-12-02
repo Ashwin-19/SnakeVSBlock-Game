@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Ball extends ImageView implements Tokens
+import java.io.Serializable;
+
+public class Ball extends ImageView implements Tokens, Serializable
 {
     private int value;
     private Point Coordinate;
@@ -11,7 +13,7 @@ public class Ball extends ImageView implements Tokens
         super(image);
         this.setFitWidth(40);
         this.setFitHeight(40);
-        this.value = 3;
+        this.value = 1;
     }
 
     @Override

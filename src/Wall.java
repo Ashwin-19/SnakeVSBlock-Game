@@ -1,9 +1,10 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Wall extends ImageView implements Restrictions
+public class Wall extends ImageView implements Restrictions, Serializable
 {
     private int length;
     private Point Coordinate;

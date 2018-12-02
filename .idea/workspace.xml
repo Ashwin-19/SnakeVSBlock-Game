@@ -12,69 +12,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Ball.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Ball.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="79" column="69" lean-forward="true" selection-start-line="79" selection-start-column="69" selection-end-line="79" selection-end-column="69" />
+            <state relative-caret-position="181">
+              <caret line="307" column="56" lean-forward="false" selection-start-line="307" selection-start-column="56" selection-end-line="307" selection-end-column="56" />
               <folding>
-                <element signature="e#3493#3494#0" expanded="true" />
-                <element signature="e#3523#3524#0" expanded="true" />
-                <element signature="e#4946#4947#0" expanded="true" />
-                <element signature="e#4999#5000#0" expanded="true" />
-                <element signature="e#6443#6444#0" expanded="true" />
-                <element signature="e#6497#6498#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#increment_speed#0;class#Board#0" expanded="false" />
+                <element signature="method#move#0;class#Board#0" expanded="false" />
+                <element signature="method#start#0;class#Board#0" expanded="false" />
+                <element signature="method#make_buttons#0;class#Board#0" expanded="false" />
+                <element signature="class#5265:5431" expanded="false" />
+                <element signature="class#5759:6980" expanded="false" />
+                <element signature="method#handle#0;class#5759:6980" expanded="false" />
+                <element signature="class#7330:7497" expanded="false" />
+                <element signature="method#make_game#0;class#Board#0" expanded="false" />
+                <element signature="method#make_background#0;class#Board#0" expanded="false" />
+                <element signature="method#move_background#0;class#Board#0" expanded="false" />
+                <element signature="method#generate_balls#0;class#Board#0" expanded="false" />
+                <element signature="method#set_ball_position#0;class#Board#0" expanded="false" />
+                <element signature="method#set_element_position#0;class#Board#0" expanded="false" />
+                <element signature="method#generate_blocks#0;class#Board#0" expanded="false" />
+                <element signature="method#CreateBlockRow#0;class#Board#0" expanded="false" />
+                <element signature="method#CreateBlockRow1#0;class#Board#0" expanded="false" />
+                <element signature="method#set_initial_block_position#0;class#Board#0" expanded="false" />
+                <element signature="method#set_initial_block_position1#0;class#Board#0" expanded="false" />
+                <element signature="method#set_block_position#0;class#Board#0" expanded="false" />
+                <element signature="method#set_block_position1#0;class#Board#0" expanded="false" />
+                <element signature="method#MoveBlocks#0;class#Board#0" expanded="false" />
+                <element signature="method#move_snaketail#0;class#Board#0" expanded="false" />
+                <element signature="method#MoveBalls#0;class#Board#0" expanded="false" />
+                <element signature="method#RelocateBalls#0;class#Board#0" expanded="false" />
+                <element signature="method#Relocate#0;class#Board#0" expanded="false" />
+                <element signature="method#generate_magnets#0;class#Board#0" expanded="false" />
+                <element signature="method#MoveMagnets#0;class#Board#0" expanded="false" />
+                <element signature="method#RelocateMagnets#0;class#Board#0" expanded="false" />
+                <element signature="method#generate_coins#0;class#Board#0" expanded="false" />
+                <element signature="method#MoveCoins#0;class#Board#0" expanded="false" />
+                <element signature="method#RelocateCoins#0;class#Board#0" expanded="false" />
+                <element signature="method#generate_shields#0;class#Board#0" expanded="false" />
+                <element signature="method#MoveShields#0;class#Board#0" expanded="false" />
+                <element signature="method#RelocateShields#0;class#Board#0" expanded="false" />
+                <element signature="method#generateDestroyBlocks#0;class#Board#0" expanded="false" />
+                <element signature="method#MoveDBlocks#0;class#Board#0" expanded="false" />
+                <element signature="method#RelocateDBlocks#0;class#Board#0" expanded="false" />
+                <element signature="method#generate_walls#0;class#Board#0" expanded="false" />
+                <element signature="method#CreateWalls#0;class#Board#0" expanded="false" />
+                <element signature="method#set_initial_wall_position#0;class#Board#0" expanded="false" />
+                <element signature="method#set_wall_position#0;class#Board#0" expanded="false" />
+                <element signature="method#MoveWalls#0;class#Board#0" expanded="false" />
+                <element signature="method#RelocateWalls#0;class#Board#0" expanded="false" />
+                <element signature="method#HandleCollisions#0;class#Board#0" expanded="false" />
+                <element signature="method#decrease_snaketail#0;class#Board#0" expanded="false" />
+                <element signature="method#increase_snaketail#0;class#Board#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Coins.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Coins.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Snake.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Snake.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="23" column="14" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+            <state relative-caret-position="126">
+              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
-                <element signature="e#968#969#0" expanded="true" />
-                <element signature="e#1006#1007#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1099#1100#0" expanded="true" />
-                <element signature="e#1129#1130#0" expanded="true" />
-                <element signature="e#1158#1159#0" expanded="true" />
-                <element signature="e#1199#1200#0" expanded="true" />
-                <element signature="e#1235#1236#0" expanded="true" />
-                <element signature="e#1279#1280#0" expanded="true" />
-                <element signature="e#1315#1316#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2141#2142#0" expanded="true" />
+                <element signature="e#2179#2180#0" expanded="true" />
+                <element signature="e#2232#2233#0" expanded="true" />
+                <element signature="e#2272#2273#0" expanded="true" />
+                <element signature="e#2302#2303#0" expanded="true" />
+                <element signature="e#2331#2332#0" expanded="true" />
+                <element signature="e#2372#2373#0" expanded="true" />
+                <element signature="e#2408#2409#0" expanded="true" />
+                <element signature="e#2452#2453#0" expanded="true" />
+                <element signature="e#2488#2489#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,8 +96,8 @@
       <file leaf-file-name="Wall.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wall.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+            <state relative-caret-position="441">
+              <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -93,8 +106,8 @@
       <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Block.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            <state relative-caret-position="42">
+              <caret line="5" column="74" lean-forward="false" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -113,36 +126,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>initiali</find>
-      <find>set_block_position</find>
-      <find>set_wall_position</find>
-      <find>relocate</find>
-      <find>game_layout</find>
-      <find>CreateWal</find>
-      <find>loop</find>
-      <find>set_Wa</find>
-      <find>Walls</find>
-      <find>generate_Walls</find>
-      <find>set_wall</find>
+      <find>leaderboard</find>
+      <find>collision</find>
+      <find>Board</find>
+      <find>serialize</find>
+      <find>pause</find>
+      <find>back</find>
+      <find>game</find>
+      <find>Game</find>
+      <find>end</find>
+      <find>exit</find>
+      <find>Player</find>
+      <find>increase_snake</find>
+      <find>decrease_snaketail</find>
+      <find>game_loop</find>
       <find>speed</find>
+      <find>set_block_posi</find>
+      <find>blocks</find>
+      <find>set_block</find>
+      <find>createBLock</find>
+      <find>DBlocks</find>
+      <find>set_block_position</find>
+      <find>balls</find>
+      <find>RelocateBalls</find>
+      <find>Balls</find>
+      <find>set_element_position</find>
+      <find>SNAKE</find>
+      <find>make_snake</find>
       <find>generate_balls</find>
-      <find>generate_blocks</find>
-      <find>set_initial_block</find>
-      <find>snake_head.set</find>
-      <find>snake_head.move</find>
-      <find>score</find>
-      <find>make_buttons</find>
-      <find>handleCollisions()</find>
-      <find>score_label</find>
-      <find>Relocate</find>
-      <find>DestroyBlocks</find>
-      <find>Relocate()</find>
-      <find>Destroy</find>
-      <find>Destr</find>
-      <find>animatio</find>
-      <find>make_game_loop</find>
-      <find>ball</find>
-      <find>Destroy_Blocks</find>
+      <find>moveBloc</find>
+      <find>snake_head.</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -157,40 +170,40 @@
         <option value="$PROJECT_DIR$/src/BoardObjects.java" />
         <option value="$PROJECT_DIR$/src/Restrictions.java" />
         <option value="$PROJECT_DIR$/src/Tokens.java" />
-        <option value="$PROJECT_DIR$/src/Player_Data.java" />
         <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/Assets.fxml" />
         <option value="$PROJECT_DIR$/src/Settings.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Leaderboard.java" />
-        <option value="$PROJECT_DIR$/src/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/src/Settings.fxml" />
         <option value="$PROJECT_DIR$/src/Game.fxml" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
-        <option value="$PROJECT_DIR$/src/Magnet.java" />
-        <option value="$PROJECT_DIR$/src/Shield.java" />
-        <option value="$PROJECT_DIR$/src/Destroy_Blocks.java" />
-        <option value="$PROJECT_DIR$/src/WelcomeScreen.fxml" />
         <option value="$PROJECT_DIR$/src/Leaderboard.fxml" />
         <option value="$PROJECT_DIR$/src/Instructions.fxml" />
         <option value="$PROJECT_DIR$/src/Instructions.java" />
-        <option value="$PROJECT_DIR$/src/Menu.java" />
         <option value="$PROJECT_DIR$/src/Menu.fxml" />
-        <option value="$PROJECT_DIR$/src/EndGame.java" />
         <option value="$PROJECT_DIR$/src/EndGame.fxml" />
-        <option value="$PROJECT_DIR$/src/Block.java" />
+        <option value="$PROJECT_DIR$/src/WelcomeScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/EndGame.java" />
+        <option value="$PROJECT_DIR$/src/Menu.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Ball.java" />
-        <option value="$PROJECT_DIR$/src/Wall.java" />
-        <option value="$PROJECT_DIR$/src/Snake.java" />
+        <option value="$PROJECT_DIR$/src/Block.java" />
         <option value="$PROJECT_DIR$/src/Coins.java" />
+        <option value="$PROJECT_DIR$/src/Destroy_Blocks.java" />
+        <option value="$PROJECT_DIR$/src/Magnet.java" />
+        <option value="$PROJECT_DIR$/src/Shield.java" />
+        <option value="$PROJECT_DIR$/src/Wall.java" />
+        <option value="$PROJECT_DIR$/src/WelcomeScreen.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Player_Data.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
+        <option value="$PROJECT_DIR$/src/Snake.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="236" />
-    <option name="y" value="-24" />
+    <option name="x" value="337" />
+    <option name="y" value="-25" />
     <option name="width" value="1132" />
     <option name="height" value="1038" />
   </component>
@@ -322,14 +335,14 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18121547" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14696133" sideWeight="0.5052083" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24640884" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27734807" sideWeight="0.49479166" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -343,24 +356,45 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14696133" sideWeight="0.5052083" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28950277" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696133" sideWeight="0.49479166" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="86" column="43" lean-forward="false" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -510,32 +544,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="8" column="68" lean-forward="false" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Assets.fxml" />
     <entry file="file://$PROJECT_DIR$/src/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -561,60 +574,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="60" column="29" lean-forward="false" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Magnet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shield.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Destroy_Blocks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WelcomeScreen.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Instructions.fxml">
@@ -625,17 +589,6 @@
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
@@ -678,28 +631,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WelcomeScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="56" lean-forward="false" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Leaderboard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/WelcomeScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EndGame.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="294">
+          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -707,86 +671,228 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EndGame.java">
+    <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="2" lean-forward="false" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+        <state relative-caret-position="618">
+          <caret line="70" column="50" lean-forward="true" selection-start-line="70" selection-start-column="50" selection-end-line="70" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Block.java">
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        <state relative-caret-position="462">
+          <caret line="93" column="38" lean-forward="false" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
+          <folding>
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#893#894#0" expanded="true" />
+            <element signature="e#930#931#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1540#1541#0" expanded="true" />
+            <element signature="e#1580#1581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board_Database.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        <state relative-caret-position="42">
+          <caret line="5" column="67" lean-forward="false" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Coins.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="74" lean-forward="false" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Magnet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="69" lean-forward="false" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shield.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="69" lean-forward="false" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WelcomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EndGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="33" column="55" lean-forward="true" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+          <folding>
+            <element signature="method#start#0;class#EndGame#0" expanded="false" />
+            <element signature="method#Back#0;class#EndGame#0" expanded="false" />
+            <element signature="method#initialize#0;class#EndGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Destroy_Blocks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="77" lean-forward="false" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player_Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="74" lean-forward="false" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Wall.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
-          <caret line="23" column="14" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="e#968#969#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1129#1130#0" expanded="true" />
-            <element signature="e#1158#1159#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1235#1236#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-            <element signature="e#1315#1316#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Coins.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="79" column="69" lean-forward="true" selection-start-line="79" selection-start-column="69" selection-end-line="79" selection-end-column="69" />
+        <state relative-caret-position="181">
+          <caret line="307" column="56" lean-forward="false" selection-start-line="307" selection-start-column="56" selection-end-line="307" selection-end-column="56" />
           <folding>
-            <element signature="e#3493#3494#0" expanded="true" />
-            <element signature="e#3523#3524#0" expanded="true" />
-            <element signature="e#4946#4947#0" expanded="true" />
-            <element signature="e#4999#5000#0" expanded="true" />
-            <element signature="e#6443#6444#0" expanded="true" />
-            <element signature="e#6497#6498#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#increment_speed#0;class#Board#0" expanded="false" />
+            <element signature="method#move#0;class#Board#0" expanded="false" />
+            <element signature="method#start#0;class#Board#0" expanded="false" />
+            <element signature="method#make_buttons#0;class#Board#0" expanded="false" />
+            <element signature="class#5265:5431" expanded="false" />
+            <element signature="class#5759:6980" expanded="false" />
+            <element signature="method#handle#0;class#5759:6980" expanded="false" />
+            <element signature="class#7330:7497" expanded="false" />
+            <element signature="method#make_game#0;class#Board#0" expanded="false" />
+            <element signature="method#make_background#0;class#Board#0" expanded="false" />
+            <element signature="method#move_background#0;class#Board#0" expanded="false" />
+            <element signature="method#generate_balls#0;class#Board#0" expanded="false" />
+            <element signature="method#set_ball_position#0;class#Board#0" expanded="false" />
+            <element signature="method#set_element_position#0;class#Board#0" expanded="false" />
+            <element signature="method#generate_blocks#0;class#Board#0" expanded="false" />
+            <element signature="method#CreateBlockRow#0;class#Board#0" expanded="false" />
+            <element signature="method#CreateBlockRow1#0;class#Board#0" expanded="false" />
+            <element signature="method#set_initial_block_position#0;class#Board#0" expanded="false" />
+            <element signature="method#set_initial_block_position1#0;class#Board#0" expanded="false" />
+            <element signature="method#set_block_position#0;class#Board#0" expanded="false" />
+            <element signature="method#set_block_position1#0;class#Board#0" expanded="false" />
+            <element signature="method#MoveBlocks#0;class#Board#0" expanded="false" />
+            <element signature="method#move_snaketail#0;class#Board#0" expanded="false" />
+            <element signature="method#MoveBalls#0;class#Board#0" expanded="false" />
+            <element signature="method#RelocateBalls#0;class#Board#0" expanded="false" />
+            <element signature="method#Relocate#0;class#Board#0" expanded="false" />
+            <element signature="method#generate_magnets#0;class#Board#0" expanded="false" />
+            <element signature="method#MoveMagnets#0;class#Board#0" expanded="false" />
+            <element signature="method#RelocateMagnets#0;class#Board#0" expanded="false" />
+            <element signature="method#generate_coins#0;class#Board#0" expanded="false" />
+            <element signature="method#MoveCoins#0;class#Board#0" expanded="false" />
+            <element signature="method#RelocateCoins#0;class#Board#0" expanded="false" />
+            <element signature="method#generate_shields#0;class#Board#0" expanded="false" />
+            <element signature="method#MoveShields#0;class#Board#0" expanded="false" />
+            <element signature="method#RelocateShields#0;class#Board#0" expanded="false" />
+            <element signature="method#generateDestroyBlocks#0;class#Board#0" expanded="false" />
+            <element signature="method#MoveDBlocks#0;class#Board#0" expanded="false" />
+            <element signature="method#RelocateDBlocks#0;class#Board#0" expanded="false" />
+            <element signature="method#generate_walls#0;class#Board#0" expanded="false" />
+            <element signature="method#CreateWalls#0;class#Board#0" expanded="false" />
+            <element signature="method#set_initial_wall_position#0;class#Board#0" expanded="false" />
+            <element signature="method#set_wall_position#0;class#Board#0" expanded="false" />
+            <element signature="method#MoveWalls#0;class#Board#0" expanded="false" />
+            <element signature="method#RelocateWalls#0;class#Board#0" expanded="false" />
+            <element signature="method#HandleCollisions#0;class#Board#0" expanded="false" />
+            <element signature="method#decrease_snaketail#0;class#Board#0" expanded="false" />
+            <element signature="method#increase_snaketail#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#2179#2180#0" expanded="true" />
+            <element signature="e#2232#2233#0" expanded="true" />
+            <element signature="e#2272#2273#0" expanded="true" />
+            <element signature="e#2302#2303#0" expanded="true" />
+            <element signature="e#2331#2332#0" expanded="true" />
+            <element signature="e#2372#2373#0" expanded="true" />
+            <element signature="e#2408#2409#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
+            <element signature="e#2488#2489#0" expanded="true" />
           </folding>
         </state>
       </provider>
