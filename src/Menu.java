@@ -12,11 +12,23 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class Menu extends Application
 {
-
+    /**
+     * The Main menu stage
+     */
     Stage MenuStage;
 
+    /**
+     * To start the Main menu
+     * @param primaryStage The main stage of the game
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -28,6 +40,11 @@ public class Menu extends Application
         MenuStage.show();
     }
 
+    /**
+     * To go to the leaderboard page
+     * @param e
+     * @throws Exception
+     */
     @FXML
     protected void Leaderboard(ActionEvent e) throws Exception
     {
@@ -38,6 +55,11 @@ public class Menu extends Application
         Leaderboard.show();
     }
 
+    /**
+     * To go to the Instructions page
+     * @param e
+     * @throws Exception
+     */
     @FXML
     protected void Instructions(ActionEvent e) throws Exception
     {
@@ -48,6 +70,11 @@ public class Menu extends Application
         Instructions.show();
     }
 
+    /**
+     * To go to the Exit page
+     * @param e
+     * @throws Exception
+     */
     @FXML
     protected void Exit(ActionEvent e) throws IOException
     {
@@ -63,12 +90,22 @@ public class Menu extends Application
         System.exit(-1);
     }
 
+    /**
+     * To go to the Main Game page
+     * @param e
+     * @throws Exception
+     */
     @FXML
     protected void StartGame(ActionEvent e) throws Exception
     {
         Player.getCurrent_player().start_game(e);
     }
 
+    /**
+     * To resume the game
+     * @param e
+     * @throws Exception
+     */
     @FXML
     protected void ResumeGame(ActionEvent e) throws Exception
     {

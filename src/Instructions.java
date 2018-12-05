@@ -7,8 +7,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class Instructions extends Application
 {
+    /**
+     * To open the Instructions Page
+     * @param primaryStage Main stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -19,6 +29,11 @@ public class Instructions extends Application
         primaryStage.show();
     }
 
+    /**
+     * To go back to the main menu from instructions page
+     * @param e
+     * @throws Exception
+     */
     @FXML
     protected void Back(ActionEvent e) throws Exception
     {

@@ -15,6 +15,11 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class Leaderboard extends Application implements Initializable, Serializable
 {
     @FXML
@@ -47,6 +52,11 @@ public class Leaderboard extends Application implements Initializable, Serializa
     @FXML
     private Label Player10;
 
+    /**
+     * To open the Leaderboard Page
+     * @param primaryStage Main stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -57,6 +67,11 @@ public class Leaderboard extends Application implements Initializable, Serializa
         primaryStage.show();
     }
 
+    /**
+     * To go back to the main menu from Leaderboard page
+     * @param e
+     * @throws Exception
+     */
     @FXML
     protected void Back(ActionEvent e) throws Exception
     {

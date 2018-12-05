@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #030303;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu">
+    <children>
+       <Button fx:id="resume" layoutX="356.0" layoutY="526.0" mnemonicParsing="false" onAction="#ResumeGame" prefHeight="103.0" prefWidth="110.0" style="-fx-background-color: BLACK;">
+         <graphic>
+            <ImageView fitHeight="103.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/gameicons/PNG/White/2x/return.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+       <Button fx:id="start" contentDisplay="CENTER" layoutX="238.0" layoutY="400.0" mnemonicParsing="false" onAction="#StartGame" prefHeight="92.0" prefWidth="103.0" style="-fx-background-color: BLACK;" textAlignment="CENTER" textFill="#011b1b">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/gameicons/PNG/White/2x/right.png" />
+               </image>
+            </ImageView>
+         </graphic>
+       </Button>
+       <Button fx:id="lb" layoutX="113.0" layoutY="515.0" mnemonicParsing="false" onAction="#Leaderboard" prefHeight="103.0" prefWidth="110.0" style="-fx-background-color: BLACK;">
+         <graphic>
+            <ImageView fitHeight="103.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/gameicons/PNG/White/2x/leaderboardsComplex.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+       <Button layoutX="503.0" layoutY="705.0" mnemonicParsing="false" onAction="#Exit" prefHeight="63.0" prefWidth="66.0" style="-fx-background-color: BLACK;">
+         <graphic>
+            <ImageView fitHeight="63.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/gameicons/PNG/White/2x/exit.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="315.0" fitWidth="252.0" layoutX="174.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/Title/ashwin.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="257.0" layoutY="647.0" mnemonicParsing="false" onAction="#Instructions" style="-fx-background-color: BLACK;">
+         <graphic>
+            <ImageView fitHeight="67.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/gameicons/PNG/White/2x/question.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

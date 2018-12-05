@@ -25,6 +25,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.animation.*;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class Board extends Application implements Serializable
 {
     // In screen components

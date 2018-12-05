@@ -1,15 +1,35 @@
+
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 import java.util.Random;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class Wall extends ImageView implements Restrictions, Serializable
 {
+    /**
+     * length of wall
+     */
     private int length;
+
+    /**
+     * coordinates of wall
+     */
     private Point Coordinate;
+
+
     Random random;
 
+    /**
+     * The constructor to initialize the wall object
+     * @param image Image to be set as wall
+     */
     public Wall(Image image)
     {
         super(image);
@@ -37,16 +57,30 @@ public class Wall extends ImageView implements Restrictions, Serializable
         }
     }
 
+    /**
+     * To get coordinates of the wall
+     * @return Coordinates of wall
+     */
     @Override
     public Point getCoordinate() {
         return Coordinate;
     }
 
+    /**
+     * To get length of the wall
+     * @return Length of wall
+     */
     public int getLength() {
         return length;
     }
 
+    /**
+     * To set length of wall
+     * @param length Length of wall to be set
+     */
     public void setLength(int length) {
         this.length = length;
     }
 }
+
+

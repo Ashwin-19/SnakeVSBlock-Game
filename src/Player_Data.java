@@ -1,6 +1,11 @@
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class Player_Data implements Serializable
 {
     public static ArrayList<Player> Leaderboard = new ArrayList<>();

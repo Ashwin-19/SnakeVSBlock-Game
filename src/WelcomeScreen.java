@@ -19,14 +19,26 @@ import java.util.ArrayList;
 
 import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
-
+/**
+ * 
+ * @author check
+ *
+ */
 public class WelcomeScreen extends Application
 {
+    /**
+     * Name input box
+     */
     @FXML
     private TextField textField;
 
     public static AudioClip audio;
 
+    /**
+     * To start the Welcome screen
+     * @param primaryStage The Main Stage of the game
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -54,6 +66,11 @@ public class WelcomeScreen extends Application
         primaryStage.show();
     }
 
+    /**
+     * To validate the name entered
+     * @param e Enter button pressed
+     * @throws Exception
+     */
     @FXML
     protected void Enter(ActionEvent e) throws Exception
     {

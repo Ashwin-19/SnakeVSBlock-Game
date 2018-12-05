@@ -12,6 +12,11 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class EndGame extends Application implements Initializable
 {
     @FXML

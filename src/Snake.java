@@ -1,3 +1,5 @@
+
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -5,14 +7,39 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import javafx.scene.text.Text;
 
+/**
+ * 
+ * @author check
+ *
+ */
 public class Snake extends ImageView implements BoardObjects, Serializable
 {
+    /**
+     *  Length of the snake
+     */
     private int length;
+
+    /**
+     * Colour of the snake
+     */
     private String colour;
 
+    /**
+     * Left button
+     */
     private boolean leftkey;
+
+    /**
+     * Right button
+     */
     private boolean rightkey;
 
+    /**
+     * The constructor to initialize Snake objects
+     * @param x The x-coordinate of the snake
+     * @param y The y-coordinate of the snake
+     * @param image Image of snake
+     */
     public Snake(double x, double y, Image image)
     {
         super(image);
@@ -20,6 +47,11 @@ public class Snake extends ImageView implements BoardObjects, Serializable
         this.setLayoutY(y);
     }
 
+    /**
+     * To move the snake
+     * @param walls The wall object array
+     * @param text Length of snake displayed on head
+     */
     void move(Wall[] walls, Text text)
     {
         double x = getLayoutX();
@@ -75,24 +107,44 @@ public class Snake extends ImageView implements BoardObjects, Serializable
         }
     }
 
+    /**
+     * To move left
+     * @param leftkey Left button press
+     */
     public void setLeftkey(boolean leftkey)
     {
         this.leftkey = leftkey;
     }
 
+    /**
+     * To move right
+     * @param rightkey right button press
+     */
     public void setRightkey(boolean rightkey)
     {
         this.rightkey = rightkey;
     }
 
+    /**
+     * To get length of snake
+     * @return Length
+     */
     public int getLength() {
         return length;
     }
 
+    /**
+     * To set length of snake
+     * @param length Length of snake to be set
+     */
     public void setLength(int length) {
         this.length = length;
     }
 
+    /**
+     * To set colour of snake
+     * @param colour Colour to be set
+     */
     public void setColour(String colour) {
         this.colour = colour;
     }
